@@ -12,9 +12,9 @@ This ensures you can run Python from the command line.
 Open Command Prompt, PowerShell, Terminal (Linux/macOS), and enter:
 
 command
-python --version 
+>python --version 
 or 
-python3 --version
+>python3 --version
 
 Output (example): Python 3.10.11
 
@@ -27,15 +27,15 @@ After verifying Python is installed, you need to install the requests library, w
 ✅ On Windows (CMD or PowerShell):
 
 command
-pip install requests 
+>pip install requests 
 or 
-pip3 install requests
+>pip3 install requests
 
 ✅ On Linux/macOS (Terminal):
 
 command
-python3 -m pip install requests
+>python3 -m pip install requests
 or 
-pip3 install requests
+>pip3 install requests
 
 💡 Tip: On some Linux systems, you may need to install pip first using your package manager (e.g., sudo apt install python3-pip for Debian/Ubuntu).
