@@ -1,0 +1,53 @@
+###############################################################################################################################################
+######  This script checks whether a given website is online or not by sending an HTTP GET request to it and analyzing the response  ##########
+###############################################################################################################################################
+
+##### What It Does When Run  #####
+
+
+# Attempts to connect to https://www.google.com.
+# If the site is reachable and returns a 200 status, it says it’s ONLINE.
+# If it returns any other status or can't be reached within 5 seconds, it says the site is OFFLINE and optionally includes the error or status code.
+
+
+
+
+
+import requests
+# This line imports the requests module, which is a Python library used for making HTTP requests.
+
+
+def check_website(url):
+# Defines a function named check_website that takes one argument: url, which should be a string representing the website's address (e.g., "https://www.google.com" or "https://www.facebook.com").
+
+
+    try:
+        response = requests.get(url, timeout=5)
+    # Function to send HTTP GET request for given url address
+    # The timeout=5 means the request will wait a maximum of 5 seconds for a response before giving up.
+    # If the request is successful, the response object is stored in the variable "response".
+    
+        if response.status_code == 200:
+            print(f"Website {url} is ONLINE.")
+        # Checks if the HTTP status code of the response is 200, which means the website is up and running (OK) and prints a message indicating the website is ONLINE.
+
+        else:
+            print(f"Website {url} is OFFLINE or returned status code: {response.status_code}")
+        # If the status code is not 200, it assumes the website is either down or responding with an unexpected status (e.g., 404, 500).
+        # It prints a message showing that the website is OFFLINE or returned a different status code.
+        
+
+    except requests.RequestException as e:
+        print(f"Website {url} is OFFLINE. Error: {e}")
+    # If an error occurs while trying to connect to the website (e.g., network error, timeout, invalid URL), it catches the error  and prints an message.
+    # RequestException is a base class for all exceptions raised by the requests library.
+
+if __name__ == "__main__":
+# This line checks if the script is being run directly.
+# If it is, the code inside this block will be executed.    
+
+
+    url = input = "https://www.google.com"
+    check_website(url)
+    # Then it calls the check_website function with that URL.
+
